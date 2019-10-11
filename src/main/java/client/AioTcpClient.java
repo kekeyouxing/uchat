@@ -40,36 +40,29 @@ public class AioTcpClient {
         asyncChannelGroup = AsynchronousChannelGroup.withThreadPool(executor);
     }
    
-	// GBK解码器 
+	// GBK解码器
     private final CharsetDecoder decoder = Charset.forName("GBK").newDecoder();
     
     public void start(final String ip, final int port) throws Exception {
-        // 启动20000个并发连接，使用20个线程的池子
-        for (int i = 0; i < 2; i++) {
-            try {
-                //客户端socket.当然它是异步方式的。
-                AsynchronousSocketChannel connector = null;
-                if (connector == null || !connector.isOpen()) {
-                    //从异步通道管理器处得到客户端socket
-                    connector = AsynchronousSocketChannel.open(asyncChannelGroup);
 
-					//  放入hashmap, 设置通道参数
-                    sockets.putIfAbsent(String.valueOf(i), connector);
-                    connector.setOption(StandardSocketOptions.TCP_NODELAY, true);
-                    connector.setOption(StandardSocketOptions.SO_REUSEADDR, true);
-                    connector.setOption(StandardSocketOptions.SO_KEEPALIVE, true);
+        try {
 
-                    // 发起异步连接。这里的的connect原型是
-                    // connect(SocketAddress remote, A attachment, CompletionHandler<Void,? super A> handler)
-                    // 也就是它的CompletionHandler的A型参数是由这里的调用方法的第二个参数决定。
-					// 即是connector。客户端连接器。
-                    // V型为null  ==> Void
-					//
-                    connector.connect(new InetSocketAddress(ip, port), connector, new AioConnectHandler(i));
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+            AsynchronousSocketChannel connector = null;
+            if (connector == null || !connector.isOpen()) {
+                //这句话会产生一个TCP链接,也就是经典的TCP三次握手链接,
+                // client--[SYN]-->Server
+                // Server--[SYN, ACK]-->Client
+                // Client--[ACK]-->Server
+                connector = AsynchronousSocketChannel.open(asyncChannelGroup);
+
+                connector.setOption(StandardSocketOptions.TCP_NODELAY, true);
+                connector.setOption(StandardSocketOptions.SO_REUSEADDR, true);
+                connector.setOption(StandardSocketOptions.SO_KEEPALIVE, true);
+                sockets.put("0", connector);
+                connector.connect(new InetSocketAddress(ip, port), connector, new AioConnectHandler(0));
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     
