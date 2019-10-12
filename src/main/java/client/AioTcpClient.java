@@ -53,7 +53,7 @@ public class AioTcpClient extends AioTcpLifecycle {
             channel.connect(new InetSocketAddress(host, port), sessionId, new CompletionHandler<Void, Integer>() {
                 @Override
                 public void completed(Void result, Integer sessionId) {
-                    connect(host, port);
+                    //connect(host, port);
                     sockets.put(sessionId, channel);
                 }
 
