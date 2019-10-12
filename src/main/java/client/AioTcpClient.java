@@ -1,89 +1,93 @@
 package client;
 
+import common.AioTcpLifecycle;
+import common.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.net.StandardSocketOptions;
-import java.nio.channels.AsynchronousChannelGroup;
 import java.nio.channels.AsynchronousSocketChannel;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
+import java.nio.channels.CompletionHandler;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class AioTcpClient {
-    public static JTextField jt=new JTextField();
-    public static ConcurrentHashMap<String,AsynchronousSocketChannel> sockets =new ConcurrentHashMap<>();
+public class AioTcpClient extends AioTcpLifecycle {
+    Logger logger = LoggerFactory.getLogger(AioTcpClient.class);
+    private JTextField jt=new JTextField();
+    private static ConcurrentHashMap<Integer, AsynchronousSocketChannel> sockets =new ConcurrentHashMap<>();
 
     // 客户端静态对象
-    static AioTcpClient me;
+    private static AioTcpClient me;
 
-    // 异步通道管理器
-    private AsynchronousChannelGroup asyncChannelGroup;
+    private Config config = new Config();
 
 	// 构造函数初始化异步通道管理器
-    public AioTcpClient() throws Exception {
-        //创建线程池 && 异步通道管理器   
-        ExecutorService executor = Executors.newFixedThreadPool(20);
-        asyncChannelGroup = AsynchronousChannelGroup.withThreadPool(executor);
+    private AioTcpClient() {
+
     }
-   
-	// GBK解码器
-    private final CharsetDecoder decoder = Charset.forName("GBK").newDecoder();
-    
-    public void start(final String ip, final int port) throws Exception {
 
+    public int connect(String host, int port){
+        int sessionId = idGenerator.getAndIncrement();
+        connect(host, port, sessionId);
+        return sessionId;
+    }
+
+    private void connect(String host, int port, int sessionId){
+
+        AsynchronousSocketChannel channel;
         try {
+            channel = AsynchronousSocketChannel.open(channelGroup);
+            channel.setOption(StandardSocketOptions.TCP_NODELAY, true);
+            channel.setOption(StandardSocketOptions.SO_REUSEADDR, true);
+            channel.setOption(StandardSocketOptions.SO_KEEPALIVE, true);
+            channel.connect(new InetSocketAddress(host, port), sessionId, new CompletionHandler<Void, Integer>() {
+                @Override
+                public void completed(Void result, Integer sessionId) {
+                    connect(host, port);
+                    sockets.put(sessionId, channel);
+                }
 
-            AsynchronousSocketChannel connector = null;
-            if (connector == null || !connector.isOpen()) {
-                //这句话会产生一个TCP链接,也就是经典的TCP三次握手链接,
-                // client--[SYN]-->Server
-                // Server--[SYN, ACK]-->Client
-                // Client--[ACK]-->Server
-                connector = AsynchronousSocketChannel.open(asyncChannelGroup);
+                @Override
+                public void failed(Throwable exc, Integer attachment) {
 
-                connector.setOption(StandardSocketOptions.TCP_NODELAY, true);
-                connector.setOption(StandardSocketOptions.SO_REUSEADDR, true);
-                connector.setOption(StandardSocketOptions.SO_KEEPALIVE, true);
-                sockets.put("0", connector);
-                connector.connect(new InetSocketAddress(ip, port), connector, new AioConnectHandler(0));
-            }
+                }
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+    private void start() {
+        connect("localhost", 9008);
+
     }
     
-    public void work() throws Exception{
+    private void work() throws Exception{
         AioTcpClient client = new AioTcpClient();
-        client.start("localhost", 9008);
+        client.start();
     }
 
-    public void send() throws UnsupportedEncodingException{
+    private void send() {
 
 		// 获取0号通道
-        AsynchronousSocketChannel socket=sockets.get("0");
+        AsynchronousSocketChannel socket=sockets.get(0);
 
-		// 组发送buffer
         String sendString=jt.getText();
-        ByteBuffer clientBuffer=ByteBuffer.wrap(sendString.getBytes("UTF-8"));        
+        ByteBuffer clientBuffer=ByteBuffer.wrap(sendString.getBytes(StandardCharsets.UTF_8));
 
-		// 发起异步写!!!!!
         socket.write(clientBuffer, clientBuffer, new AioSendHandler(socket));
     }
-    public   void createPanel() {
+    private void createPanel() {
         me=this;
         JFrame f = new JFrame("Wallpaper");
         f.getContentPane().setLayout(new BorderLayout());       
@@ -92,28 +96,11 @@ public class AioTcpClient {
         JButton bt=new JButton("点我");
         p.add(bt);
         me=this;
-        bt.addActionListener(new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               try {
-                    me.send();
-                 
-                } catch (Exception ex) {
-                    Logger.getLogger(AioTcpClient.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        bt.addActionListener((e)-> {
+           try {
+                me.send();
+            } catch (Exception ex) {
             }
-        
-        });
-        
-        bt=new JButton("结束");
-        p.add(bt);
-        me=this;
-        bt.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {                 
-            }
-        
         });
  
         f.getContentPane().add(jt,BorderLayout.CENTER);
@@ -126,24 +113,13 @@ public class AioTcpClient {
     }
 
     public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {     
-                AioTcpClient d = null;
-                try {
-                    d = new AioTcpClient();
-                } catch (Exception ex) {
-                    Logger.getLogger(AioTcpClient.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            try {
+                AioTcpClient d = new AioTcpClient();
                 d.createPanel();
-                try {
-                    d.work();
-                } catch (Exception ex) {
-                    Logger.getLogger(AioTcpClient.class.getName()).log(Level.SEVERE, null, ex);
-                }
-               
-                 
+                d.work();
+            } catch (Exception ex) {
+
             }
         });
     } 

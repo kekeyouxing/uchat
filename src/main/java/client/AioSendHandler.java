@@ -12,14 +12,14 @@ public class AioSendHandler implements CompletionHandler<Integer,ByteBuffer>
     private AsynchronousSocketChannel socket; 
 
 	// 构造函数, 注入通道
-    public AioSendHandler(AsynchronousSocketChannel socket) { 
+    public AioSendHandler(AsynchronousSocketChannel socket) {
         this.socket = socket; 
     } 
 
     @Override
     public void completed(Integer i, ByteBuffer buf) {
 		// 本次异步写, 写了>0个字节, 则再次发起异步写, 知道写入量为0
-        if (i > 0) { 
+        if (i > 0) {
             socket.write(buf, buf, this); 
         } 
 		// 本次异步写失败(对方断线)
