@@ -38,8 +38,11 @@ public class AioTcpServer extends AioTcpLifecycle implements Runnable {
             serverSocket.accept(idGenerator.getAndIncrement(), new CompletionHandler<AsynchronousSocketChannel, Integer>() {
                 @Override
                 public void completed(AsynchronousSocketChannel socket, Integer sessionId) {
-                    accept(serverSocket);
+                    // Tcp three-way handshake succeeded
+                    // When a new connection comes, accept function will invoke only once
+                    // Continue to wait for the arrival of the new connection
                     startRead(socket);
+                    accept(serverSocket);
                 }
 
                 @Override
@@ -61,8 +64,5 @@ public class AioTcpServer extends AioTcpLifecycle implements Runnable {
         socket.read(clientBuffer, clientBuffer, rd);
 
     }
-    public static void main(String... args) throws Exception {
-        AioTcpServer server = new AioTcpServer(9008);
-        new Thread(server).start();
-    } 
+
 }
