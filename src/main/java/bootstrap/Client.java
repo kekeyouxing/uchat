@@ -12,9 +12,6 @@ public class Client {
                 ClientView view = new ClientView(client, sessionId);
                 view.createPanel();
 
-                sessionId = client.connect("localhost", 9009);
-                ClientView view1 = new ClientView(client, sessionId);
-                view1.createPanel();
             } catch (Exception e) {
 
             }

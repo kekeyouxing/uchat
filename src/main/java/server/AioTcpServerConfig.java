@@ -1,9 +1,8 @@
-package common;
+package server;
 
-public class Config {
-    private String host = "localhost";
-
-    private Integer port = 9008;
+public class AioTcpServerConfig {
+    private String host;
+    private int port;
 
     public String getHost() {
         return host;
@@ -13,11 +12,11 @@ public class Config {
         this.host = host;
     }
 
-    public Integer getPort() {
+    public int getPort() {
         return port;
     }
 
-    public void setPort(Integer port) {
+    public void setPort(int port) {
         this.port = port;
     }
 }
