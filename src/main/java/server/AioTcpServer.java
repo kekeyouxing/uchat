@@ -15,14 +15,13 @@ public class AioTcpServer extends AioTcpLifecycle implements Runnable {
 
     private AsynchronousServerSocketChannel serverSocket;
 
-    public void setConfig(AioTcpServerConfig config){
+    public AioTcpServer(AioTcpServerConfig config){
+
         this.serverConfig = config;
+        bind(serverConfig.getHost(), serverConfig.getPort());
+        super.init();
     }
 
-    public void init(){
-        super.init();
-        bind(serverConfig.getHost(), serverConfig.getPort());
-    }
     private void bind(String host, int port){
         AsynchronousServerSocketChannel serverSocket = null;
         try {
@@ -30,6 +29,7 @@ public class AioTcpServer extends AioTcpLifecycle implements Runnable {
             serverSocket.setOption(StandardSocketOptions.SO_REUSEADDR, true);
             serverSocket.bind(new InetSocketAddress(host, port));
         } catch (Exception e) {
+            logger.error("Server bind error", e);
         }
         this.serverSocket = serverSocket;
     }
@@ -48,9 +48,6 @@ public class AioTcpServer extends AioTcpLifecycle implements Runnable {
             serverSocket.accept(idGenerator.getAndIncrement(), new CompletionHandler<AsynchronousSocketChannel, Integer>() {
                 @Override
                 public void completed(AsynchronousSocketChannel socket, Integer sessionId) {
-                    // Tcp three-way handshake succeeded
-                    // When a new connection comes, accept function will invoke only once
-                    // Continue to wait for the arrival of the new connection
                     try {
                         work.registerSession(socket, sessionId);
                     } catch (Throwable throwable) {
@@ -74,5 +71,7 @@ public class AioTcpServer extends AioTcpLifecycle implements Runnable {
             e.printStackTrace();
         }
     }
-
+    public void start(){
+        new Thread(this).start();
+    }
 }

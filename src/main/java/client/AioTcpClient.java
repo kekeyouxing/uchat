@@ -18,6 +18,7 @@ public class AioTcpClient extends AioTcpLifecycle {
 
     private static ConcurrentHashMap<Integer, AsynchronousSocketChannel> sockets =new ConcurrentHashMap<>();
 
+    
     public int connect(String host, int port){
         int sessionId = idGenerator.getAndIncrement();
         connect(host, port, sessionId);

@@ -1,14 +1,15 @@
 package bootstrap;
 
+import server.AioTcpServer;
 import server.AioTcpServerConfig;
-import server.SimpleServer;
 
 public class Server {
     public static void main(String[] args){
         AioTcpServerConfig serverConfig = new AioTcpServerConfig();
         serverConfig.setHost("localhost");
-        serverConfig.setPort(9009);
-        SimpleServer server = new SimpleServer(serverConfig);
+        serverConfig.setPort(9010);
+
+        AioTcpServer server = new AioTcpServer(serverConfig);
         server.start();
     }
 }

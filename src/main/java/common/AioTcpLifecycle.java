@@ -32,7 +32,7 @@ public class AioTcpLifecycle implements Lifecycle {
                 clientConfig = new AioTcpClientConfig();
             }
             if(serverConfig == null){
-                serverConfig = new AioTcpServerConfig();
+                //serverConfig = new AioTcpServerConfig();
             }
             if(listener == null){
                 listener = new AioTcpListener();
