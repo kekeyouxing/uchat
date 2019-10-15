@@ -11,19 +11,21 @@ import java.net.StandardSocketOptions;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.nio.charset.StandardCharsets;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class AioTcpClient extends AioTcpLifecycle {
     Logger logger = LoggerFactory.getLogger(AioTcpClient.class);
 
-    private static ConcurrentHashMap<Integer, AsynchronousSocketChannel> sockets =new ConcurrentHashMap<>();
-
-    
+//    AsynchronousSocketChannel socketTest;
+    public AioTcpClient(AioTcpClientConfig config){
+        this.config = config;
+        super.init();
+    }
     public int connect(String host, int port){
         int sessionId = idGenerator.getAndIncrement();
         connect(host, port, sessionId);
         return sessionId;
     }
+
 
     private void connect(String host, int port, int sessionId){
 
@@ -36,7 +38,7 @@ public class AioTcpClient extends AioTcpLifecycle {
             channel.connect(new InetSocketAddress(host, port), sessionId, new CompletionHandler<Void, Integer>() {
                 @Override
                 public void completed(Void result, Integer sessionId) {
-                    sockets.put(sessionId, channel);
+                    work.registerSession(channel, sessionId);
                 }
 
                 @Override
@@ -47,11 +49,6 @@ public class AioTcpClient extends AioTcpLifecycle {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public void send(String content, int sessionId) {
-        AsynchronousSocketChannel socket=sockets.get(sessionId);
-        write(socket, content);
     }
 
     private void write(AsynchronousSocketChannel socket, String content){
@@ -71,5 +68,19 @@ public class AioTcpClient extends AioTcpLifecycle {
         });
     }
 
+//    @Override
+//    public void run() {
+//
+//        write(socketTest,"你好");
+//        try {
+//            Thread.currentThread().sleep(400000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//    public void start(String host, int port){
+//        connect(host, port);
+//        new Thread(this).start();
+//    }
 }
 

@@ -16,9 +16,8 @@ public class AioTcpServer extends AioTcpLifecycle implements Runnable {
     private AsynchronousServerSocketChannel serverSocket;
 
     public AioTcpServer(AioTcpServerConfig config){
-
-        this.serverConfig = config;
-        bind(serverConfig.getHost(), serverConfig.getPort());
+        this.config = config;
+        bind(config.getHost(), config.getPort());
         super.init();
     }
 
@@ -60,11 +59,7 @@ public class AioTcpServer extends AioTcpLifecycle implements Runnable {
 
                 @Override
                 public void failed(Throwable exc, Integer sessionId) {
-                    try {
-                        listener.failedOpeningSession(sessionId, exc);
-                    } catch (Throwable throwable) {
-                        throwable.printStackTrace();
-                    }
+
                 }
             });
         } catch (Exception e) {

@@ -1,9 +1,7 @@
 package common;
 
-import client.AioTcpClientConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import server.AioTcpServerConfig;
 import util.ThreadPoolUtil;
 
 import java.io.IOException;
@@ -21,24 +19,14 @@ public class AioTcpLifecycle implements Lifecycle {
 
     public AioTcpWork work;
 
-    protected AioTcpClientConfig clientConfig;
-    protected AioTcpServerConfig serverConfig;
-
-    protected AioTcpListener listener;
+    protected Config config;
     @Override
     public void init() {
         try {
-            if(clientConfig == null){
-                clientConfig = new AioTcpClientConfig();
+            if(channelGroup == null){
+                channelGroup = AsynchronousChannelGroup.withThreadPool(executor);
             }
-            if(serverConfig == null){
-                //serverConfig = new AioTcpServerConfig();
-            }
-            if(listener == null){
-                listener = new AioTcpListener();
-            }
-            channelGroup = AsynchronousChannelGroup.withThreadPool(executor);
-            work = new AioTcpWork(listener);
+            work = new AioTcpWork(new AioTcpListener(config), config);
         } catch (IOException e) {
             e.printStackTrace();
         }

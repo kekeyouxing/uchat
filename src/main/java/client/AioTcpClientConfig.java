@@ -1,5 +1,7 @@
 package client;
 
-public class AioTcpClientConfig {
+import common.Config;
+
+public class AioTcpClientConfig extends Config {
 
 }

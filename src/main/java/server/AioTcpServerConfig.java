@@ -1,6 +1,8 @@
 package server;
 
-public class AioTcpServerConfig {
+import common.Config;
+
+public class AioTcpServerConfig extends Config {
     private String host;
     private int port;
 
