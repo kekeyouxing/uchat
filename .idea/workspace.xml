@@ -5,26 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7eac8939-3b09-4c70-83a3-c8e43d442f5f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/Decoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/ServerDecoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/TcpConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/AdaptiveBufferSizePredictor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/BufferSizePredictor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/BufferUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/TypeUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/A.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/AbstractLifecycle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/B.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/Lifecycle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/AioTcpClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/AioTcpClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/AioTcpLifecycle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/AioTcpLifecycle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/AioTcpListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/AioTcpListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/AioTcpSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/AioTcpSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/AioTcpWork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/AioTcpWork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/AioTcpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/AioTcpServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpServerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ClientView.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" afterDir="false" />
@@ -43,20 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/AioTcpClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="40" column="34" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1442#1443#0" expanded="true" />
-                <element signature="e#1522#1523#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bootstrap/Server.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,11 +65,47 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bootstrap/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="76">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/test/AbstractLifecycle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="57" lean-forward="true" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/test/A.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/test/B.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/test/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -139,8 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/server/AioWriteHandler.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/client/AioSendHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/ThreadPool.java" />
         <option value="$PROJECT_DIR$/src/main/java/Config.java" />
@@ -183,6 +189,15 @@
         <option value="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/sontwo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/Demo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/Parent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/Sonone.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/Lifecycle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/A.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/B.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/AbstractLifecycle.java" />
       </list>
     </option>
   </component>
@@ -238,22 +253,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uchat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uchat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -262,7 +261,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -302,7 +301,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bootstrap.Client" />
       <module name="uchat" />
@@ -329,12 +328,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Sonone" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Sonone" />
+      <module name="uchat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Test" />
+      <module name="uchat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.Server" />
+      <item itemvalue="Application.Sonone" />
+      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Sonone" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
       </list>
@@ -358,7 +387,7 @@
       <workItem from="1571031512930" duration="15566000" />
       <workItem from="1571105451968" duration="870000" />
       <workItem from="1571106780736" duration="21943000" />
-      <workItem from="1571134630407" duration="61000" />
+      <workItem from="1571134630407" duration="2206000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1570789310045</created>
@@ -423,11 +452,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571110768078</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="change some detail">
+      <created>1571134722069</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1571134722069</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76561000" />
+    <option name="totallyTimeSpent" value="78706000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -442,8 +478,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.48451328" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.042035397" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.042035397" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3561947" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40154868" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -518,66 +554,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="change some detail" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/nio/charset/Charset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="526" column="26" selection-start-line="526" selection-start-column="26" selection-end-line="526" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/AioWriteHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/AioAcceptHandler.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/nio/channels/CompletionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="54" column="43" lean-forward="true" selection-start-line="54" selection-start-column="43" selection-end-line="54" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/util/concurrent/ExecutorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/util/concurrent/atomic/AtomicInteger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="156" column="40" lean-forward="true" selection-start-line="156" selection-start-column="40" selection-end-line="156" selection-end-column="40" />
-          <folding>
-            <element signature="e#4085#4086#0" expanded="true" />
-            <element signature="e#4725#4726#0" expanded="true" />
-            <element signature="e#4793#4794#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/util/concurrent/ThreadPoolExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="1198" column="49" lean-forward="true" selection-start-line="1198" selection-start-column="49" selection-end-line="1198" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/jre/lib/ext/jfxrt.jar!/javafx/concurrent/Service.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#16925#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/client/AioConnectHandler.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/util/concurrent/BlockingQueue.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -903,10 +879,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/Parent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/Sontwo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/Sonone.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="35" lean-forward="true" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/A.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/B.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/AbstractLifecycle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="57" lean-forward="true" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/Lifecycle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="28" lean-forward="true" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bootstrap/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="76">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
