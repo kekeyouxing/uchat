@@ -1,31 +1,42 @@
 package client;
 
-import common.AioTcpLifecycle;
+import common.AbstractLifecycle;
+import common.AioTcpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.ThreadPoolUtil;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.net.StandardSocketOptions;
+import java.nio.channels.AsynchronousChannelGroup;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.nio.charset.StandardCharsets;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class AioTcpClient extends AioTcpLifecycle {
-    Logger logger = LoggerFactory.getLogger(AioTcpClient.class);
+/**
+ * @author keyouxing
+ */
+public class AioTcpClient extends AbstractLifecycle {
 
-//    AsynchronousSocketChannel socketTest;
+    private Logger logger = LoggerFactory.getLogger(AioTcpClient.class);
+    private AsynchronousChannelGroup channelGroup;
+    private AtomicInteger idGenerator = new AtomicInteger();
+    public AioTcpClientConfig config;
+    private ThreadPoolExecutor executor = ThreadPoolUtil.createThreadPool();
+
     public AioTcpClient(AioTcpClientConfig config){
         this.config = config;
-        super.init();
     }
-    public int connect(String host, int port){
+    public int connect(){
+        start();
         int sessionId = idGenerator.getAndIncrement();
-        connect(host, port, sessionId);
+        connect(config.getHost(), config.getPort(), sessionId);
         return sessionId;
     }
-
 
     private void connect(String host, int port, int sessionId){
 
@@ -38,7 +49,9 @@ public class AioTcpClient extends AioTcpLifecycle {
             channel.connect(new InetSocketAddress(host, port), sessionId, new CompletionHandler<Void, Integer>() {
                 @Override
                 public void completed(Void result, Integer sessionId) {
-                    work.registerSession(channel, sessionId);
+                    AioTcpSession session = new AioTcpSession(channel, sessionId, config);
+                    config.getHandler().sessionOpen(session);
+
                 }
 
                 @Override
@@ -68,19 +81,18 @@ public class AioTcpClient extends AioTcpLifecycle {
         });
     }
 
-//    @Override
-//    public void run() {
-//
-//        write(socketTest,"你好");
-//        try {
-//            Thread.currentThread().sleep(400000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//    public void start(String host, int port){
-//        connect(host, port);
-//        new Thread(this).start();
-//    }
+    @Override
+    public void init() {
+        try {
+            channelGroup = AsynchronousChannelGroup.withThreadPool(executor);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void destroy(){
+        
+    }
 }
 

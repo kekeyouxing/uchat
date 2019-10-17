@@ -1,4 +1,4 @@
 package common;
 
-public class TcpConnection {
+public interface TcpConnection {
 }

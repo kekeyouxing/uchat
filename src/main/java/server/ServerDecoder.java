@@ -1,11 +1,14 @@
-package common;
+package server;
+
+import common.AioTcpSession;
+import common.Decoder;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 
-public class ServerDecoder implements Decoder{
+public class ServerDecoder implements Decoder {
     private CharsetDecoder decoder = Charset.forName("UTF-8").newDecoder();
     @Override
     public void decode(ByteBuffer buffer, AioTcpSession session) {

@@ -1,27 +1,42 @@
 package server;
 
-import common.AioTcpLifecycle;
+import common.AbstractLifecycle;
+import common.AioTcpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.ThreadPoolUtil;
 
+import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.StandardSocketOptions;
+import java.nio.channels.AsynchronousChannelGroup;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class AioTcpServer extends AioTcpLifecycle implements Runnable {
-    Logger logger = LoggerFactory.getLogger(AioTcpServer.class);
+/**
+ * @author keyouxing
+ */
+public class AioTcpServer extends AbstractLifecycle {
+    private Logger logger = LoggerFactory.getLogger(AioTcpServer.class);
 
-    private AsynchronousServerSocketChannel serverSocket;
+    private AtomicInteger idGenerator = new AtomicInteger();
+    private AsynchronousChannelGroup channelGroup;
+    public AioTcpServerConfig config;
+    private ThreadPoolExecutor executor = ThreadPoolUtil.createThreadPool();
 
     public AioTcpServer(AioTcpServerConfig config){
         this.config = config;
-        bind(config.getHost(), config.getPort());
-        super.init();
     }
 
-    private void bind(String host, int port){
+    public void listen(){
+        start();
+        listen(bind(config.getHost(), config.getPort()));
+    }
+
+    private AsynchronousServerSocketChannel bind(String host, int port){
         AsynchronousServerSocketChannel serverSocket = null;
         try {
             serverSocket = AsynchronousServerSocketChannel.open(channelGroup);
@@ -30,16 +45,7 @@ public class AioTcpServer extends AioTcpLifecycle implements Runnable {
         } catch (Exception e) {
             logger.error("Server bind error", e);
         }
-        this.serverSocket = serverSocket;
-    }
-
-    public void run() {
-        listen(serverSocket);
-        try {
-            Thread.currentThread().sleep(400000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        return serverSocket;
     }
 
     private void listen(AsynchronousServerSocketChannel serverSocket){
@@ -47,14 +53,11 @@ public class AioTcpServer extends AioTcpLifecycle implements Runnable {
             serverSocket.accept(idGenerator.getAndIncrement(), new CompletionHandler<AsynchronousSocketChannel, Integer>() {
                 @Override
                 public void completed(AsynchronousSocketChannel socket, Integer sessionId) {
-                    try {
-                        work.registerSession(socket, sessionId);
-                    } catch (Throwable throwable) {
-                        throwable.printStackTrace();
-                    }finally {
-                        listen(serverSocket);
-                    }
 
+                    AioTcpSession session = new AioTcpSession(socket, sessionId, config);
+                    config.getHandler().sessionOpen(session);
+
+                    listen(serverSocket);
                 }
 
                 @Override
@@ -66,7 +69,18 @@ public class AioTcpServer extends AioTcpLifecycle implements Runnable {
             e.printStackTrace();
         }
     }
-    public void start(){
-        new Thread(this).start();
+
+    @Override
+    public void init() {
+        try {
+            channelGroup = AsynchronousChannelGroup.withThreadPool(executor);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void destroy(){
+        
     }
 }

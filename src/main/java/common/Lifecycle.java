@@ -1,5 +1,16 @@
 package common;
 
+/**
+ * @author keyouxing
+ */
 public interface Lifecycle {
-    public void init();
+    /**
+     * Lifecycle start
+     */
+    public void start();
+
+    /**
+     * Lifecycle stop
+     */
+    public void stop();
 }
