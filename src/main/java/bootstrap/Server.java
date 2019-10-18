@@ -4,9 +4,13 @@ import common.*;
 import server.AioTcpServer;
 import server.AioTcpServerConfig;
 import server.ServerDecoder;
+import common.StringParser;
 
 import java.util.function.Consumer;
 
+/**
+ * @author keyouxing
+ */
 public class Server extends AbstractLifecycle {
     private AioTcpServer server;
     private Consumer<TcpConnection> accept;
@@ -15,8 +19,8 @@ public class Server extends AbstractLifecycle {
     }
 
     private void listen(String host, Integer port){
-        server.config.setHost(host);
-        server.config.setPort(port);
+        server.getConfig().setHost(host);
+        server.getConfig().setPort(port);
         start();
     }
 
@@ -27,8 +31,8 @@ public class Server extends AbstractLifecycle {
 
     @Override
     public void init(){
-        server.config.setDecoder(new ServerDecoder());
-        server.config.setHandler(new ServerHandler());
+        server.getConfig().setDecoder(new ServerDecoder());
+        server.getConfig().setHandler(new ServerHandler());
         server.listen();
     }
 
@@ -39,8 +43,8 @@ public class Server extends AbstractLifecycle {
 
     private class ServerHandler implements Handler {
         @Override
-        public void sessionOpen(Session session) {
-            TcpConnectionImpl connection = new TcpConnectionImpl(session);
+        public void connectionOpenSuccess(Context context) {
+            TcpConnectionImpl connection = new TcpConnectionImpl(context);
             if(accept!=null){
                 accept.accept(connection);
             }
@@ -53,6 +57,12 @@ public class Server extends AbstractLifecycle {
 
         server.accept(connect -> {
             System.out.println("服务器连接成功");
+            StringParser parser = new StringParser();
+            parser.complete(message->{
+                String msg = message.trim();
+                System.out.println("client receive: "+msg);
+            });
+            connect.receive(parser::receive);
         }).listen("localhost", 9008);
 
         try {

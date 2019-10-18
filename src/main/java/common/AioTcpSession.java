@@ -10,7 +10,7 @@ import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.util.concurrent.TimeUnit;
 
-public class AioTcpSession implements Session{
+public class AioTcpSession{
     AsynchronousSocketChannel socket;
     Integer sesssionId;
     private final BufferSizePredictor bufferSizePredictor = new AdaptiveBufferSizePredictor();
@@ -53,7 +53,7 @@ public class AioTcpSession implements Session{
         int size = BufferUtils.normalizeBufferSize(bufferSizePredictor.nextBufferSize());
         return ByteBuffer.allocate(size);
     }
-    @Override
+
     public void read() {
         ByteBuffer buffer = allocateReadBuffer();
 

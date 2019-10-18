@@ -44,8 +44,8 @@ public class Client extends AbstractLifecycle {
 
     private class ClientHandler implements Handler {
         @Override
-        public void sessionOpen(Session session) {
-            TcpConnectionImpl connection = new TcpConnectionImpl(session);
+        public void connectionOpenSuccess(Context context) {
+            TcpConnectionImpl connection = new TcpConnectionImpl(context);
             if(accept!=null){
                 accept.accept(connection);
             }
@@ -55,6 +55,7 @@ public class Client extends AbstractLifecycle {
     public static void main(String[] args) {
         AioTcpClientConfig config = new AioTcpClientConfig();
         Client client = new Client(config);
+
         client.accept(connect -> {
             System.out.println("客户端连接成功");
         }).connect("localhost", 9008);

@@ -1,7 +1,7 @@
 package client;
 
 import common.AbstractLifecycle;
-import common.AioTcpSession;
+import common.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.ThreadPoolUtil;
@@ -15,7 +15,6 @@ import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author keyouxing
@@ -24,21 +23,22 @@ public class AioTcpClient extends AbstractLifecycle {
 
     private Logger logger = LoggerFactory.getLogger(AioTcpClient.class);
     private AsynchronousChannelGroup channelGroup;
-    private AtomicInteger idGenerator = new AtomicInteger();
     public AioTcpClientConfig config;
     private ThreadPoolExecutor executor = ThreadPoolUtil.createThreadPool();
 
     public AioTcpClient(AioTcpClientConfig config){
         this.config = config;
     }
-    public int connect(){
+    public void connect(){
         start();
-        int sessionId = idGenerator.getAndIncrement();
-        connect(config.getHost(), config.getPort(), sessionId);
-        return sessionId;
+        connect(config.getHost(), config.getPort());
     }
 
-    private void connect(String host, int port, int sessionId){
+    public AioTcpClientConfig getConfig() {
+        return config;
+    }
+
+    private void connect(String host, int port){
 
         AsynchronousSocketChannel channel;
         try {
@@ -46,16 +46,20 @@ public class AioTcpClient extends AbstractLifecycle {
             channel.setOption(StandardSocketOptions.TCP_NODELAY, true);
             channel.setOption(StandardSocketOptions.SO_REUSEADDR, true);
             channel.setOption(StandardSocketOptions.SO_KEEPALIVE, true);
-            channel.connect(new InetSocketAddress(host, port), sessionId, new CompletionHandler<Void, Integer>() {
+            channel.connect(new InetSocketAddress(host, port), this, new CompletionHandler<Void, AioTcpClient>() {
                 @Override
-                public void completed(Void result, Integer sessionId) {
-                    AioTcpSession session = new AioTcpSession(channel, sessionId, config);
-                    config.getHandler().sessionOpen(session);
+                public void completed(Void result, AioTcpClient client) {
+                    AioTcpClientContext clientContext = new AioTcpClientContext(client.getConfig(), channel);
+
+                    Handler handler = client.getConfig().getHandler();
+                    if (handler != null){
+                        handler.connectionOpenSuccess(clientContext);
+                    }
 
                 }
 
                 @Override
-                public void failed(Throwable exc, Integer attachment) {
+                public void failed(Throwable exc, AioTcpClient attachment) {
 
                 }
             });
