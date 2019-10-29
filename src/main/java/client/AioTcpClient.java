@@ -1,48 +1,44 @@
 package client;
 
-import common.AioTcpLifecycle;
-import common.Config;
+import common.AbstractLifecycle;
+import common.Handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.ThreadPoolUtil;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.net.StandardSocketOptions;
+import java.nio.channels.AsynchronousChannelGroup;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
 import java.nio.charset.StandardCharsets;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import java.util.concurrent.ThreadPoolExecutor;
 
-public class AioTcpClient extends AioTcpLifecycle {
-    Logger logger = LoggerFactory.getLogger(AioTcpClient.class);
-    private JTextField jt=new JTextField();
-    private static ConcurrentHashMap<Integer, AsynchronousSocketChannel> sockets =new ConcurrentHashMap<>();
+/**
+ * @author keyouxing
+ */
+public class AioTcpClient extends AbstractLifecycle {
 
-    // 客户端静态对象
-    private static AioTcpClient me;
+    private Logger logger = LoggerFactory.getLogger(AioTcpClient.class);
+    private AsynchronousChannelGroup channelGroup;
+    public AioTcpClientConfig config;
+    private ThreadPoolExecutor executor = ThreadPoolUtil.createThreadPool();
 
-    private Config config = new Config();
-
-	// 构造函数初始化异步通道管理器
-    private AioTcpClient() {
-
+    public AioTcpClient(AioTcpClientConfig config){
+        this.config = config;
+    }
+    public void connect(){
+        start();
+        connect(config.getHost(), config.getPort());
     }
 
-    public int connect(String host, int port){
-        int sessionId = idGenerator.getAndIncrement();
-        connect(host, port, sessionId);
-        return sessionId;
+    public AioTcpClientConfig getConfig() {
+        return config;
     }
 
-    private void connect(String host, int port, int sessionId){
+    private void connect(String host, int port){
 
         AsynchronousSocketChannel channel;
         try {
@@ -50,78 +46,57 @@ public class AioTcpClient extends AioTcpLifecycle {
             channel.setOption(StandardSocketOptions.TCP_NODELAY, true);
             channel.setOption(StandardSocketOptions.SO_REUSEADDR, true);
             channel.setOption(StandardSocketOptions.SO_KEEPALIVE, true);
-            channel.connect(new InetSocketAddress(host, port), sessionId, new CompletionHandler<Void, Integer>() {
+            channel.connect(new InetSocketAddress(host, port), this, new CompletionHandler<Void, AioTcpClient>() {
                 @Override
-                public void completed(Void result, Integer sessionId) {
-                    //connect(host, port);
-                    sockets.put(sessionId, channel);
+                public void completed(Void result, AioTcpClient client) {
+                    AioTcpClientContext clientContext = new AioTcpClientContext(client.getConfig(), channel);
+
+                    Handler handler = client.getConfig().getHandler();
+                    if (handler != null){
+                        handler.connectionOpenSuccess(clientContext);
+                    }
+
                 }
 
                 @Override
-                public void failed(Throwable exc, Integer attachment) {
+                public void failed(Throwable exc, AioTcpClient attachment) {
 
                 }
             });
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-    }
-    private void start() {
-        connect("localhost", 9008);
-
-    }
-    
-    private void work() throws Exception{
-        AioTcpClient client = new AioTcpClient();
-        client.start();
     }
 
-    private void send() {
+    private void write(AsynchronousSocketChannel socket, String content){
 
-		// 获取0号通道
-        AsynchronousSocketChannel socket=sockets.get(0);
+        ByteBuffer clientBuffer=ByteBuffer.wrap(content.getBytes(StandardCharsets.UTF_8));
 
-        String sendString=jt.getText();
-        ByteBuffer clientBuffer=ByteBuffer.wrap(sendString.getBytes(StandardCharsets.UTF_8));
+        socket.write(clientBuffer, clientBuffer, new CompletionHandler<Integer, ByteBuffer>() {
+            @Override
+            public void completed(Integer result, ByteBuffer byteBuffer) {
 
-        socket.write(clientBuffer, clientBuffer, new AioSendHandler(socket));
-    }
-    private void createPanel() {
-        me=this;
-        JFrame f = new JFrame("Wallpaper");
-        f.getContentPane().setLayout(new BorderLayout());       
-        
-        JPanel p=new JPanel(new FlowLayout(FlowLayout.LEFT));        
-        JButton bt=new JButton("点我");
-        p.add(bt);
-        me=this;
-        bt.addActionListener((e)-> {
-           try {
-                me.send();
-            } catch (Exception ex) {
             }
-        });
- 
-        f.getContentPane().add(jt,BorderLayout.CENTER);
-        f.getContentPane().add(p, BorderLayout.EAST);
-        
-        f.setSize(450, 300);
-        f.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-        f.setLocationRelativeTo (null);
-        f.setVisible (true);
-    }
 
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(() -> {
-            try {
-                AioTcpClient d = new AioTcpClient();
-                d.createPanel();
-                d.work();
-            } catch (Exception ex) {
+            @Override
+            public void failed(Throwable exc, ByteBuffer byteBuffer) {
 
             }
         });
-    } 
+    }
+
+    @Override
+    public void init() {
+        try {
+            channelGroup = AsynchronousChannelGroup.withThreadPool(executor);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void destroy(){
+        
+    }
 }
 

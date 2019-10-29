@@ -1,68 +1,75 @@
 package server;
 
-import common.AioTcpLifecycle;
+import common.AbstractLifecycle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.ThreadPoolUtil;
 
+import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
+import java.net.StandardSocketOptions;
 import java.nio.channels.AsynchronousChannelGroup;
 import java.nio.channels.AsynchronousServerSocketChannel;
-import java.nio.channels.AsynchronousSocketChannel;
-import java.nio.channels.CompletionHandler;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
-public class AioTcpServer extends AioTcpLifecycle implements Runnable {
-    Logger logger = LoggerFactory.getLogger(AioTcpServer.class);
+/**
+ * @author keyouxing
+ */
+public class AioTcpServer extends AbstractLifecycle {
+    private Logger logger = LoggerFactory.getLogger(AioTcpServer.class);
+
+    private AsynchronousChannelGroup channelGroup;
+    private AioTcpServerConfig config;
+    private ThreadPoolExecutor executor = ThreadPoolUtil.createThreadPool();
+    private AioTcpAcceptHandler acceptHandler;
     private AsynchronousServerSocketChannel serverSocket;
-
-    public AioTcpServer(int port) throws Exception {
-        //创建线程池
-        ExecutorService executor = Executors.newFixedThreadPool(20);
-
-        serverSocket = AsynchronousServerSocketChannel.open(channelGroup).bind(new InetSocketAddress(port));
-    }
- 
-    public void run() {
-        accept(serverSocket);
-        try {
-            Thread.currentThread().sleep(400000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public AioTcpServer(AioTcpServerConfig config){
+        this.config = config;
     }
 
-    private void accept(AsynchronousServerSocketChannel serverSocket){
+    public AioTcpServerConfig getConfig() {
+        return config;
+    }
+
+    public AsynchronousServerSocketChannel getServerSocket() {
+        return serverSocket;
+    }
+
+    public void listen(){
+        start();
+        listen(serverSocket);
+    }
+
+    public void listen(AsynchronousServerSocketChannel serverSocket){
+        serverSocket.accept(this, acceptHandler);
+    }
+
+    private void bind(String host, int port){
+        AsynchronousServerSocketChannel serverSocket = null;
         try {
-            serverSocket.accept(idGenerator.getAndIncrement(), new CompletionHandler<AsynchronousSocketChannel, Integer>() {
-                @Override
-                public void completed(AsynchronousSocketChannel socket, Integer sessionId) {
-                    accept(serverSocket);
-                    startRead(socket);
-                }
-
-                @Override
-                public void failed(Throwable exc, Integer attachment) {
-
-                }
-            });
+            serverSocket = AsynchronousServerSocketChannel.open(channelGroup);
+            serverSocket.setOption(StandardSocketOptions.SO_REUSEADDR, true);
+            serverSocket.bind(new InetSocketAddress(host, port));
         } catch (Exception e) {
+            logger.error("Server bind error", e);
+        }
+        this.serverSocket = serverSocket;
+    }
+
+
+    @Override
+    public void init() {
+        try {
+            channelGroup = AsynchronousChannelGroup.withThreadPool(executor);
+            acceptHandler = new AioTcpAcceptHandler();
+            bind(config.getHost(), config.getPort());
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void startRead(AsynchronousSocketChannel socket) {
-
-        ByteBuffer clientBuffer = ByteBuffer.allocate(1024);
-
-        AioReadHandler rd=new AioReadHandler(socket);
-        // 读数据到clientBuffer, 同时将clientBuffer作为attachment
-        socket.read(clientBuffer, clientBuffer, rd);
-
+    @Override
+    public void destroy(){
+        
     }
-    public static void main(String... args) throws Exception {
-        AioTcpServer server = new AioTcpServer(9008);
-        new Thread(server).start();
-    } 
 }

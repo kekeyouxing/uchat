@@ -1,23 +1,41 @@
 package common;
 
+/**
+ * @author keyouxing
+ */
 public class Config {
-    private String host = "localhost";
 
-    private Integer port = 9008;
+    /**
+     *  The maximum time for the I/O operation to complete
+     */
+    private int timeout = 30 * 1000;
 
-    public String getHost() {
-        return host;
+    private Decoder decoder;
+
+    private Handler handler;
+
+
+    public int getTimeout() {
+        return timeout;
     }
 
-    public void setHost(String host) {
-        this.host = host;
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
     }
 
-    public Integer getPort() {
-        return port;
+    public Decoder getDecoder() {
+        return decoder;
     }
 
-    public void setPort(Integer port) {
-        this.port = port;
+    public void setDecoder(Decoder decoder) {
+        this.decoder = decoder;
+    }
+
+    public Handler getHandler() {
+        return handler;
+    }
+
+    public void setHandler(Handler handler) {
+        this.handler = handler;
     }
 }

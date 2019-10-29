@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 public class ThreadPoolUtil {
     private static ThreadPoolExecutor threadPool= null;
 
-
     public static ThreadPoolExecutor createThreadPool(){
         if(threadPool == null){
             synchronized (ThreadPoolUtil.class){
@@ -16,7 +15,6 @@ public class ThreadPoolUtil {
                     int corePoolSize = 50;
                     int maximumPoolSize = 100;
                     long keepAliveTime= 10;
-                    TimeUnit unit;
                     BlockingQueue<Runnable> workQueue = new LinkedBlockingDeque<>();
                     threadPool = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit.SECONDS, workQueue);
                     return threadPool;
