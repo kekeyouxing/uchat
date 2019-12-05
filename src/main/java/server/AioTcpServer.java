@@ -56,7 +56,6 @@ public class AioTcpServer extends AbstractLifecycle {
         this.serverSocket = serverSocket;
     }
 
-
     @Override
     public void init() {
         try {

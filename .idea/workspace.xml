@@ -3,28 +3,23 @@
   <component name="AnalysisUIOptions">
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/client/AioReadHandler.java" line="11" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="7eac8939-3b09-4c70-83a3-c8e43d442f5f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/client/AioTcpClientContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/BaseContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/Context.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/MessageHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/StringParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpAcceptHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpServerContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/UUIDGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/Connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/parser/AbstractByteBufferMessageHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/parser/AbstractMessageHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/parser/CharParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/parser/DelimiterParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/util/parser/StringParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/AioTcpListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/AioTcpSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/AioTcpSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Handler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/Listener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/Session.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/AioTcpClientContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/AioTcpClientContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/BaseContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/BaseContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/parser/MessageHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/StringParser.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/TcpConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/TcpConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/AioTcpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpServer.java" afterDir="false" />
@@ -33,8 +28,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/server/AioTcpServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/AioTcpServer.class" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,128 +37,11 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/server/AioTcpServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/AioTcpClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="912">
-              <caret line="52" selection-start-line="52" selection-end-line="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/server/AioTcpAcceptHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/server/AioTcpServerContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/common/BaseContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="70" lean-forward="true" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/client/AioTcpClientContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/bootstrap/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#398#399#0" expanded="true" />
-                <element signature="e#458#459#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/common/StringParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#201#202#0" expanded="true" />
-                <element signature="e#237#238#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/common/MessageHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/util/function/Consumer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="GuiceNewModule" />
         <option value="Class" />
       </list>
     </option>
@@ -182,63 +58,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/server/TcpServerConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bootstrap/Bootstrap.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/SimpleServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/SimpleAioTcpListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/Listener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/BufferUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/TypeUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/BufferSizePredictor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/AdaptiveBufferSizePredictor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/AioTcpClientConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/Decoder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/AioTcpServerConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/AioTcpWork.java" />
-        <option value="$PROJECT_DIR$/src/main/java/view/ClientView.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/AioTcpListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/ServerDecoder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/AioTcpLifecycle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/sontwo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/Demo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/Parent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/Sonone.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/Lifecycle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/A.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/B.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/AbstractLifecycle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/Lifecycle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/ServerHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bootstrap/ServerHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/Config.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/ClientDecoder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/UUIDGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/Session.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/AbstractLifecycle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/Handler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/Context.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/BaseContext.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/AioTcpServerContext.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/AioTcpSession.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/AioTcpAcceptHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/AioTcpServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/AioTcpConnectHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/AioTcpClientContext.java" />
-        <option value="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/StringParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/TcpConnection.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/StringParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/common/MessageHandler.java" />
-      </list>
-    </option>
-  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -246,92 +65,9 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="173" />
-    <option name="y" value="206" />
-    <option name="width" value="1828" />
-    <option name="height" value="740" />
-  </component>
+  <component name="ProjectId" id="1UY3J03JdkALMLQCEtUbONzrO3N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="uchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uchat" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uchat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uchat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uchat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uchat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uchat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uchat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uchat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="uchat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="uchat" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -343,7 +79,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -461,6 +197,15 @@
       <workItem from="1571219060424" duration="1389000" />
       <workItem from="1571296229193" duration="25284000" />
       <workItem from="1571394444259" duration="633000" />
+      <workItem from="1571395107545" duration="98000" />
+      <workItem from="1571624466665" duration="5422000" />
+      <workItem from="1571630935079" duration="1464000" />
+      <workItem from="1571793160968" duration="11000" />
+      <workItem from="1571822395482" duration="1236000" />
+      <workItem from="1575519627288" duration="4659000" />
+      <workItem from="1575524349009" duration="134000" />
+      <workItem from="1575524504759" duration="7622000" />
+      <workItem from="1575540047715" duration="11888000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1570789310045</created>
@@ -546,48 +291,22 @@
       <option name="project" value="LOCAL" />
       <updated>1571304356248</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="更新">
+      <created>1571395155801</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1571395155801</updated>
+    </task>
+    <task id="LOCAL-00014" summary="更新">
+      <created>1571395185708</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1571395185708</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110968000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1980728" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.36946902" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.042035397" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40154868" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49946466" weight="0.042035397" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010707" side_tool="true" weight="0.32964602" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.042035397" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49892932" weight="0.21128319" />
-      <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.042035397" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Codota" order="5" weight="0.32976446" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -598,20 +317,7 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -640,426 +346,7 @@
     <MESSAGE value="Add config, listener" />
     <MESSAGE value="change some detail" />
     <MESSAGE value="callback start" />
-    <option name="LAST_COMMIT_MESSAGE" value="callback start" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/BufferUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="880" column="72" lean-forward="true" selection-start-line="880" selection-start-column="72" selection-end-line="880" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/AdaptiveBufferSizePredictor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2482#2483#0" expanded="true" />
-            <element signature="e#2553#2554#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/BufferSizePredictor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/ClientView.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/AioTcpServerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#165#166#0" expanded="true" />
-            <element signature="e#192#193#0" expanded="true" />
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#319#320#0" expanded="true" />
-            <element signature="e#356#357#0" expanded="true" />
-            <element signature="e#388#389#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/nio/channels/AsynchronousChannelGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="268" column="43" selection-start-line="268" selection-start-column="43" selection-end-line="268" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/ThreadPoolUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="68" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/AioReadHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#805#806#0" expanded="true" />
-            <element signature="e#842#843#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/nio/Buffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="355" column="24" selection-start-line="355" selection-start-column="24" selection-end-line="355" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/Decoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/nio/channels/AsynchronousServerSocketChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="276" column="6" lean-forward="true" selection-start-line="276" selection-start-column="6" selection-end-line="276" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/Parent.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/Sontwo.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/Sonone.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/Lifecycle.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/AbstractLifecycle.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/A.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/B.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/Test.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/AioTcpLifecycle.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/AioTcpWork.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/Lifecycle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/ServerHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/bootstrap/ServerHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/AioTcpClientConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/ServerDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/ClientDecoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-          <folding>
-            <element signature="e#521#522#0" expanded="true" />
-            <element signature="e#551#552#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/UUIDGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#135#136#0" expanded="true" />
-            <element signature="e#217#218#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/Session.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/AioTcpSession.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/nio/channels/AsynchronousSocketChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="324" column="49" selection-start-line="324" selection-start-column="39" selection-end-line="324" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/AioTcpListener.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/Listener.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/bootstrap/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/Handler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/AioTcpConnectHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/AbstractLifecycle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/AioTcpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/client/AioTcpClientContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/util/function/Consumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/MessageHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/Context.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/TcpConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/StringParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#201#202#0" expanded="true" />
-            <element signature="e#237#238#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bootstrap/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
-            <element signature="e#458#459#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/AioTcpServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/AioTcpAcceptHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/AioTcpServerContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="48" lean-forward="true" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/BaseContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="70" lean-forward="true" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="Copyright.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>uchat</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <MESSAGE value="更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新" />
   </component>
 </project>

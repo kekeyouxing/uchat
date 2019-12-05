@@ -1,12 +1,14 @@
 package bootstrap;
 
 import common.*;
+
+import java.nio.channels.AsynchronousSocketChannel;
+import java.util.function.Consumer;
 import server.AioTcpServer;
 import server.AioTcpServerConfig;
+import server.AioTcpServerContext;
 import server.ServerDecoder;
-import common.StringParser;
-
-import java.util.function.Consumer;
+import util.parser.StringParser;
 
 /**
  * @author keyouxing
@@ -21,6 +23,8 @@ public class Server extends AbstractLifecycle {
     private void listen(String host, Integer port){
         server.getConfig().setHost(host);
         server.getConfig().setPort(port);
+        server.getConfig().setDecoder(new ServerDecoder());
+        server.getConfig().setHandler(new ServerHandler());
         start();
     }
 
@@ -30,20 +34,18 @@ public class Server extends AbstractLifecycle {
     }
 
     @Override
-    public void init(){
-        server.getConfig().setDecoder(new ServerDecoder());
-        server.getConfig().setHandler(new ServerHandler());
+    public void init() {
         server.listen();
     }
 
     @Override
-    public void destroy(){
-
+    public void destroy() {
     }
 
     private class ServerHandler implements Handler {
         @Override
         public void connectionOpenSuccess(Context context) {
+            //context ---> server.getConfig(), socketChannel
             TcpConnectionImpl connection = new TcpConnectionImpl(context);
             if(accept!=null){
                 accept.accept(connection);
@@ -55,14 +57,20 @@ public class Server extends AbstractLifecycle {
         AioTcpServerConfig serverConfig = new AioTcpServerConfig();
         Server server = new Server(serverConfig);
 
-        server.accept(connect -> {
+        server.accept(connection -> {
             System.out.println("服务器连接成功");
+            Context context = (AioTcpServerContext)connection.getContext();
+            AsynchronousSocketChannel socketChannel = (AsynchronousSocketChannel)context.getSocketChannel();
             StringParser parser = new StringParser();
             parser.complete(message->{
-                String msg = message.trim();
-                System.out.println("client receive: "+msg);
+                message = message.trim();
             });
-            connect.receive(parser::receive);
+            connection.receive(parser::receive);
+//            parser.complete(message->{
+//                String msg = message.trim();
+//                System.out.println("server receive: "+msg);
+//            });
+//            connect.receive(parser::receive);
         }).listen("localhost", 9008);
 
         try {

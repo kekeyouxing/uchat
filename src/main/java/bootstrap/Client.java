@@ -56,7 +56,7 @@ public class Client extends AbstractLifecycle {
         AioTcpClientConfig config = new AioTcpClientConfig();
         Client client = new Client(config);
 
-        client.accept(connect -> {
+        client.accept(connection -> {
             System.out.println("客户端连接成功");
         }).connect("localhost", 9008);
 

@@ -11,7 +11,6 @@ import java.nio.channels.AsynchronousSocketChannel;
 public class BaseContext extends AbstractLifecycle implements Context{
     private AioTcpServerConfig config;
     private AsynchronousSocketChannel socketChannel;
-    private String id;
 
     public BaseContext(AioTcpServerConfig config, AsynchronousSocketChannel socketChannel) {
         this.config = config;
@@ -20,9 +19,17 @@ public class BaseContext extends AbstractLifecycle implements Context{
     }
 
     @Override
-    public void init() {
-        id = UUIDGenerator.createUuid();
+    public AioTcpServerConfig getConfig() {
+        return config;
+    }
 
+    @Override
+    public AsynchronousSocketChannel getSocketChannel() {
+        return socketChannel;
+    }
+
+    @Override
+    public void init() {
     }
 
     @Override
