@@ -5,28 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7eac8939-3b09-4c70-83a3-c8e43d442f5f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/common/Connection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/parser/AbstractByteBufferMessageHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/parser/AbstractMessageHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/parser/CharParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/parser/DelimiterParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/parser/StringParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/AioTcpClientContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/AioTcpClientContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/BaseContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/BaseContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Context.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/MessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/parser/MessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/StringParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/TcpConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/TcpConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/AioTcpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/server/AioTcpServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/AioTcpServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/parser/AbstractByteBufferMessageHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/parser/CharParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/parser/CharParser.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +61,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -103,7 +85,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bootstrap.Client" />
       <module name="uchat" />
@@ -143,6 +125,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StringParser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="util.parser.StringParser" />
+      <module name="uchat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="util.parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="test.Test" />
       <module name="uchat" />
@@ -161,11 +156,13 @@
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.Sonone" />
       <item itemvalue="Application.Test" />
+      <item itemvalue="Application.StringParser" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.StringParser" />
+        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Sonone" />
       </list>
@@ -206,6 +203,8 @@
       <workItem from="1575524349009" duration="134000" />
       <workItem from="1575524504759" duration="7622000" />
       <workItem from="1575540047715" duration="11888000" />
+      <workItem from="1576670811485" duration="747000" />
+      <workItem from="1576671570173" duration="166000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1570789310045</created>
@@ -348,5 +347,16 @@
     <MESSAGE value="callback start" />
     <MESSAGE value="更新" />
     <option name="LAST_COMMIT_MESSAGE" value="更新" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bootstrap/Server.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

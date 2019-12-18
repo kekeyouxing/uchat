@@ -21,10 +21,10 @@ public class Server extends AbstractLifecycle {
     }
 
     private void listen(String host, Integer port){
-        server.getConfig().setHost(host);
-        server.getConfig().setPort(port);
-        server.getConfig().setDecoder(new ServerDecoder());
-        server.getConfig().setHandler(new ServerHandler());
+        this.server.getConfig().setHost(host);
+        this.server.getConfig().setPort(port);
+        this.server.getConfig().setDecoder(new ServerDecoder());
+        this.server.getConfig().setHandler(new ServerHandler());
         start();
     }
 
@@ -65,7 +65,7 @@ public class Server extends AbstractLifecycle {
             parser.complete(message->{
                 message = message.trim();
             });
-            connection.receive(parser::receive);
+            //connection.receive(parser::receive);
 //            parser.complete(message->{
 //                String msg = message.trim();
 //                System.out.println("server receive: "+msg);
