@@ -2,11 +2,9 @@ package bootstrap;
 
 import common.*;
 
-import java.nio.channels.AsynchronousSocketChannel;
 import java.util.function.Consumer;
 import server.AioTcpServer;
 import server.AioTcpServerConfig;
-import server.AioTcpServerContext;
 import server.ServerDecoder;
 import util.parser.StringParser;
 
@@ -59,18 +57,17 @@ public class Server extends AbstractLifecycle {
 
         server.accept(connection -> {
             System.out.println("服务器连接成功");
-            Context context = (AioTcpServerContext)connection.getContext();
-            AsynchronousSocketChannel socketChannel = (AsynchronousSocketChannel)context.getSocketChannel();
+//            Context context = (AioTcpServerContext)connection.getContext();
+//            AsynchronousSocketChannel socketChannel = (AsynchronousSocketChannel)context.getSocketChannel();
             StringParser parser = new StringParser();
             parser.complete(message->{
                 message = message.trim();
             });
-            //connection.receive(parser::receive);
-//            parser.complete(message->{
-//                String msg = message.trim();
-//                System.out.println("server receive: "+msg);
-//            });
-//            connect.receive(parser::receive);
+            parser.complete(message->{
+                String msg = message.trim();
+                System.out.println("server receive: "+msg);
+            });
+            connection.receive(parser::receive);
         }).listen("localhost", 9008);
 
         try {

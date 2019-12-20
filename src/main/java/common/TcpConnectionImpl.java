@@ -8,6 +8,7 @@ import java.util.function.Consumer;
  */
 public class TcpConnectionImpl implements TcpConnection{
     private Context context;
+    private Consumer<ByteBuffer> action;
 
     public TcpConnectionImpl(Context context) {
         this.context = context;
@@ -18,4 +19,9 @@ public class TcpConnectionImpl implements TcpConnection{
         return context;
     }
 
+    @Override
+    public TcpConnection receive(Consumer<ByteBuffer> action) {
+        this.action = action;
+        return this;
+    }
 }

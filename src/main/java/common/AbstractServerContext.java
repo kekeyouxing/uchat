@@ -1,18 +1,17 @@
 package common;
 
 import server.AioTcpServerConfig;
-import util.UUIDGenerator;
 
 import java.nio.channels.AsynchronousSocketChannel;
 
 /**
  * @author keyouxing
  */
-public class BaseContext extends AbstractLifecycle implements Context{
+public class AbstractServerContext extends AbstractLifecycle implements Context{
     private AioTcpServerConfig config;
     private AsynchronousSocketChannel socketChannel;
 
-    public BaseContext(AioTcpServerConfig config, AsynchronousSocketChannel socketChannel) {
+    public AbstractServerContext(AioTcpServerConfig config, AsynchronousSocketChannel socketChannel) {
         this.config = config;
         this.socketChannel = socketChannel;
         start();
