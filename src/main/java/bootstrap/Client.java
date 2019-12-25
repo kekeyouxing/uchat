@@ -4,9 +4,7 @@ import client.AioTcpClient;
 import client.AioTcpClientConfig;
 import client.ClientDecoder;
 import common.*;
-import server.ServerDecoder;
 
-import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 /**
@@ -44,8 +42,7 @@ public class Client extends AbstractLifecycle {
 
     private class ClientHandler implements Handler {
         @Override
-        public void connectionOpenSuccess(Context context) {
-            TcpConnectionImpl connection = new TcpConnectionImpl(context);
+        public void connectionOpenSuccess(Context context, TcpConnection connection) {
             if(accept!=null){
                 accept.accept(connection);
             }

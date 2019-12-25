@@ -6,14 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="7eac8939-3b09-4c70-83a3-c8e43d442f5f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/BaseContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/AbstractServerContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/AbstractServerContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/AioTcpSession.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Decoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/common/TcpConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/TcpConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Handler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/AioTcpAcceptHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpAcceptHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/AioTcpServerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpServerContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/ServerDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/ServerDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/ServerDecoder.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" afterDir="false" />
@@ -94,7 +98,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bootstrap.Client" />
       <module name="uchat" />
@@ -169,9 +173,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
         <item itemvalue="Application.StringParser" />
-        <item itemvalue="Application.Client" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Sonone" />
       </list>
@@ -215,6 +219,10 @@
       <workItem from="1576670811485" duration="747000" />
       <workItem from="1576671570173" duration="166000" />
       <workItem from="1576841877364" duration="3793000" />
+      <workItem from="1576999074368" duration="1271000" />
+      <workItem from="1577099223747" duration="1948000" />
+      <workItem from="1577157693053" duration="28000" />
+      <workItem from="1577273108878" duration="4811000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1570789310045</created>

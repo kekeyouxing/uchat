@@ -1,9 +1,8 @@
 package client;
 
-import common.AioTcpSession;
 import common.Decoder;
+import common.TcpConnectionImpl;
 
-import java.io.IOException;
 import java.nio.ByteBuffer;
 
 /**
@@ -12,7 +11,7 @@ import java.nio.ByteBuffer;
 public class ClientDecoder implements Decoder {
 
     @Override
-    public void decode(ByteBuffer buffer, AioTcpSession session) throws IOException {
+    public void decode(ByteBuffer buffer, TcpConnectionImpl connection) {
 
     }
 }

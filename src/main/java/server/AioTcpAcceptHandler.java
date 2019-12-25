@@ -1,6 +1,6 @@
 package server;
 
-import common.AbstractServerContext;
+import common.TcpConnectionImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,8 +17,11 @@ public class AioTcpAcceptHandler implements CompletionHandler<AsynchronousSocket
     public void completed(AsynchronousSocketChannel socketChannel, AioTcpServer server) {
 
         AioTcpServerContext serverContext = new AioTcpServerContext(server.getConfig(), socketChannel);
+        TcpConnectionImpl connection = new TcpConnectionImpl(serverContext);
+        serverContext.setConnection(connection);
 
-
+        server.getConfig().getHandler().connectionOpenSuccess(serverContext, connection);
+        serverContext.startRead();
         server.listen(server.getServerSocket());
 
     }
