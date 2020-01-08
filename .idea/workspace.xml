@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7eac8939-3b09-4c70-83a3-c8e43d442f5f" name="Default Changelist" comment="" />
+    <list default="true" id="7eac8939-3b09-4c70-83a3-c8e43d442f5f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/AioTcpServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/AioTcpServer.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +74,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.AioTcpClient">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="AioTcpClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.AioTcpClient" />
       <module name="uchat" />
@@ -95,8 +101,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bootstrap.Client" />
+      <module name="uchat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bootstrap.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bootstrap.Server" />
+      <module name="uchat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bootstrap.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.AioTcpClient" />
         <item itemvalue="Application.AioTcpServer" />
       </list>
@@ -119,6 +153,9 @@
       <workItem from="1570889882458" duration="677000" />
       <workItem from="1570932667111" duration="436000" />
       <workItem from="1572356144667" duration="162000" />
+      <workItem from="1572356518366" duration="925000" />
+      <workItem from="1572749967606" duration="253000" />
+      <workItem from="1578482405276" duration="43000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1570789310045</created>
@@ -155,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572356203575</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="init project">
+      <created>1572356539563</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1572356539563</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
