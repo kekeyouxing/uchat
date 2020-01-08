@@ -50,11 +50,11 @@ public class AioTcpClient extends AbstractLifecycle {
                 @Override
                 public void completed(Void result, AioTcpClient client) {
                     AioTcpClientContext clientContext = new AioTcpClientContext(client.getConfig(), channel);
-
-                    Handler handler = client.getConfig().getHandler();
-                    if (handler != null){
-                        handler.connectionOpenSuccess(clientContext);
-                    }
+//
+//                    Handler handler = client.getConfig().getHandler();
+//                    if (handler != null){
+//                        handler.connectionOpenSuccess(clientContext);
+//                    }
 
                 }
 

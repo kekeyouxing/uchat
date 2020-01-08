@@ -1,12 +1,13 @@
 package bootstrap;
 
 import common.*;
+
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.function.Consumer;
 import server.AioTcpServer;
 import server.AioTcpServerConfig;
-import server.ServerDecoder;
-import common.StringParser;
-
-import java.util.function.Consumer;
+import util.parser.StringParser;
 
 /**
  * @author keyouxing
@@ -19,8 +20,10 @@ public class Server extends AbstractLifecycle {
     }
 
     private void listen(String host, Integer port){
-        server.getConfig().setHost(host);
-        server.getConfig().setPort(port);
+        this.server.getConfig().setHost(host);
+        this.server.getConfig().setPort(port);
+        this.server.getConfig().setDecoder(new ServerDecoder());
+        this.server.getConfig().setHandler(new ServerHandler());
         start();
     }
 
@@ -30,39 +33,42 @@ public class Server extends AbstractLifecycle {
     }
 
     @Override
-    public void init(){
-        server.getConfig().setDecoder(new ServerDecoder());
-        server.getConfig().setHandler(new ServerHandler());
+    public void init() {
         server.listen();
     }
 
     @Override
-    public void destroy(){
-
+    public void destroy() {
     }
 
     private class ServerHandler implements Handler {
         @Override
-        public void connectionOpenSuccess(Context context) {
-            TcpConnectionImpl connection = new TcpConnectionImpl(context);
+        public void connectionOpenSuccess(Context context, TcpConnection connection) {
             if(accept!=null){
                 accept.accept(connection);
             }
         }
     }
 
+    private class ServerDecoder implements Decoder {
+        @Override
+        public void decode(ByteBuffer buffer, TcpConnectionImpl connection) throws IOException {
+            if (connection.action != null){
+                connection.action.accept(buffer);
+            }
+        }
+    }
     public static void main(String[] args){
         AioTcpServerConfig serverConfig = new AioTcpServerConfig();
         Server server = new Server(serverConfig);
 
-        server.accept(connect -> {
-            System.out.println("服务器连接成功");
+        server.accept(connection -> {
             StringParser parser = new StringParser();
             parser.complete(message->{
                 String msg = message.trim();
-                System.out.println("client receive: "+msg);
+                System.out.println("server receive: "+msg);
             });
-            connect.receive(parser::receive);
+            connection.receive(parser::receive);
         }).listen("localhost", 9008);
 
         try {

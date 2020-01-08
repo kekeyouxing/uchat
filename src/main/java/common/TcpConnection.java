@@ -1,16 +1,16 @@
 package common;
 
+
 import java.nio.ByteBuffer;
 import java.util.function.Consumer;
 
 /**
  * @author keyouxing
  */
-public interface TcpConnection {
-
+public interface TcpConnection extends Connection{
     /**
-     *  This method will be called when the client or server receives the data.
-     * @param buffer
+     * @param action
+     * @return
      */
-    public void receive(Consumer<ByteBuffer> buffer);
+    TcpConnection receive(Consumer<ByteBuffer> action);
 }

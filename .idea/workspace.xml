@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7eac8939-3b09-4c70-83a3-c8e43d442f5f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/AbstractServerContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/AioTcpSession.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Decoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Handler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/AioTcpAcceptHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpAcceptHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/AioTcpServerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpServerContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/ServerDecoder.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" afterDir="false" />
@@ -20,15 +35,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="GuiceNewModule" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>jt</find>
+      <find>Thre</find>
     </findStrings>
+    <dirStrings>
+      <dir>C:\Users\Administrator\IdeaProjects\uchat\src\main</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,7 +60,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectId" id="1S6hJIJKpIV2UqO8OOdf9kn1UCs" />
+  <component name="ProjectId" id="1UY3J03JdkALMLQCEtUbONzrO3N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -48,7 +68,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../firefly" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -57,6 +77,10 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="client" />
+      <recent name="bootstrap" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Administrator\IdeaProjects\uchat\src\main\java\server" />
       <recent name="C:\Users\Administrator\IdeaProjects\uchat\src\main\java\client" />
@@ -75,32 +99,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Client">
-    <configuration name="AioTcpClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client.AioTcpClient" />
-      <module name="uchat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AioTcpServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server.AioTcpServer" />
-      <module name="uchat" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bootstrap.Client" />
       <module name="uchat" />
@@ -127,12 +125,59 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Sonone" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Sonone" />
+      <module name="uchat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringParser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="util.parser.StringParser" />
+      <module name="uchat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="util.parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Test" />
+      <module name="uchat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.Sonone" />
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.StringParser" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="Application.AioTcpClient" />
-        <item itemvalue="Application.AioTcpServer" />
+        <item itemvalue="Application.StringParser" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Sonone" />
       </list>
     </recent_temporary>
   </component>
@@ -149,13 +194,35 @@
       <workItem from="1570786852571" duration="5379000" />
       <workItem from="1570848018747" duration="1468000" />
       <workItem from="1570849506581" duration="484000" />
-      <workItem from="1570850006821" duration="23048000" />
-      <workItem from="1570889882458" duration="677000" />
-      <workItem from="1570932667111" duration="436000" />
-      <workItem from="1572356144667" duration="162000" />
-      <workItem from="1572356518366" duration="925000" />
-      <workItem from="1572749967606" duration="253000" />
-      <workItem from="1578482405276" duration="43000" />
+      <workItem from="1570850006821" duration="23337000" />
+      <workItem from="1571019957946" duration="7453000" />
+      <workItem from="1571031512930" duration="15566000" />
+      <workItem from="1571105451968" duration="870000" />
+      <workItem from="1571106780736" duration="21943000" />
+      <workItem from="1571134630407" duration="2244000" />
+      <workItem from="1571209195285" duration="486000" />
+      <workItem from="1571210402170" duration="13000" />
+      <workItem from="1571211764384" duration="1249000" />
+      <workItem from="1571213031842" duration="3170000" />
+      <workItem from="1571219060424" duration="1389000" />
+      <workItem from="1571296229193" duration="25284000" />
+      <workItem from="1571394444259" duration="633000" />
+      <workItem from="1571395107545" duration="98000" />
+      <workItem from="1571624466665" duration="5422000" />
+      <workItem from="1571630935079" duration="1464000" />
+      <workItem from="1571793160968" duration="11000" />
+      <workItem from="1571822395482" duration="1236000" />
+      <workItem from="1575519627288" duration="4659000" />
+      <workItem from="1575524349009" duration="134000" />
+      <workItem from="1575524504759" duration="7622000" />
+      <workItem from="1575540047715" duration="11888000" />
+      <workItem from="1576670811485" duration="747000" />
+      <workItem from="1576671570173" duration="166000" />
+      <workItem from="1576841877364" duration="3793000" />
+      <workItem from="1576999074368" duration="1271000" />
+      <workItem from="1577099223747" duration="1948000" />
+      <workItem from="1577157693053" duration="28000" />
+      <workItem from="1577273108878" duration="4811000" />
     </task>
     <task id="LOCAL-00001" summary="init project">
       <created>1570789310045</created>
@@ -185,21 +252,77 @@
       <option name="project" value="LOCAL" />
       <updated>1570792204565</updated>
     </task>
-    <task id="LOCAL-00005" summary="init project">
-      <created>1572356203575</created>
+    <task id="LOCAL-00005" summary="add session id">
+      <created>1570879142580</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1572356203575</updated>
+      <updated>1570879142580</updated>
     </task>
-    <task id="LOCAL-00006" summary="init project">
-      <created>1572356539563</created>
+    <task id="LOCAL-00006" summary="resolve debug">
+      <created>1570879325834</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1572356539563</updated>
+      <updated>1570879325834</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="resolve some bugs">
+      <created>1571032813826</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1571032813827</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add config, listener">
+      <created>1571051982304</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1571051982304</updated>
+    </task>
+    <task id="LOCAL-00009" summary="change some detail">
+      <created>1571110768078</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1571110768078</updated>
+    </task>
+    <task id="LOCAL-00010" summary="change some detail">
+      <created>1571134722069</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1571134722069</updated>
+    </task>
+    <task id="LOCAL-00011" summary="change some detail">
+      <created>1571136864351</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1571136864351</updated>
+    </task>
+    <task id="LOCAL-00012" summary="callback start">
+      <created>1571304356248</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1571304356248</updated>
+    </task>
+    <task id="LOCAL-00013" summary="更新">
+      <created>1571395155801</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1571395155801</updated>
+    </task>
+    <task id="LOCAL-00014" summary="更新">
+      <created>1571395185708</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1571395185708</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,6 +357,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init project" />
-    <option name="LAST_COMMIT_MESSAGE" value="init project" />
+    <MESSAGE value="add session id" />
+    <MESSAGE value="resolve debug" />
+    <MESSAGE value="resolve some bugs" />
+    <MESSAGE value="Add config, listener" />
+    <MESSAGE value="change some detail" />
+    <MESSAGE value="callback start" />
+    <MESSAGE value="更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新" />
   </component>
 </project>
