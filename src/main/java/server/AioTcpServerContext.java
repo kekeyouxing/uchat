@@ -1,6 +1,7 @@
 package server;
 
 import common.Context;
+import common.TcpConnection;
 import common.TcpConnectionImpl;
 import util.AdaptiveBufferSizePredictor;
 import util.BufferSizePredictor;
@@ -19,11 +20,12 @@ public class AioTcpServerContext implements Context {
     private AioTcpServerConfig config;
     private AsynchronousSocketChannel socketChannel;
     private final BufferSizePredictor bufferSizePredictor = new AdaptiveBufferSizePredictor();
-    private TcpConnectionImpl connection;
+    private TcpConnection connection;
 
     public AioTcpServerContext(AioTcpServerConfig config, AsynchronousSocketChannel socketChannel) {
         this.config = config;
         this.socketChannel = socketChannel;
+        connection = new TcpConnectionImpl(this);
     }
 
     private ByteBuffer allocateReadBuffer() {
@@ -40,16 +42,17 @@ public class AioTcpServerContext implements Context {
         return socketChannel;
     }
 
+    @Override
+    public TcpConnection getConnection() {
+        return connection;
+    }
+
     private void read() {
         ByteBuffer buffer = allocateReadBuffer();
         socketChannel.read(buffer, config.getTimeout(), TimeUnit.MILLISECONDS, this, new AioReadHandler(buffer));
     }
     public void startRead() {
         read();
-    }
-
-    public void setConnection(TcpConnectionImpl connection) {
-        this.connection = connection;
     }
 
     private class AioReadHandler implements CompletionHandler<Integer, AioTcpServerContext> {

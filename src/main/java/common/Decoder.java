@@ -7,5 +7,5 @@ import java.nio.charset.CharacterCodingException;
 
 public interface Decoder {
 
-    public void decode(ByteBuffer buffer, TcpConnectionImpl connection) throws IOException;
+    public void decode(ByteBuffer buffer, TcpConnection connection) throws IOException;
 }

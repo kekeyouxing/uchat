@@ -5,10 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7eac8939-3b09-4c70-83a3-c8e43d442f5f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/client/AioTcpClientConnectHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/AbstractOutputEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/ByteBufferOutputEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/OutputEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/OutputEntryType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/SessionImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bootstrap/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/AioReadHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/AioSendHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/AioTcpClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/AioTcpClientContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/AioTcpClientContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/client/ClientDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/client/ClientDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Context.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Context.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Decoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Decoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/Handler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/Handler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/TcpConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/TcpConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/common/TcpConnectionImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/AioReadHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/AioTcpAcceptHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpServerAcceptHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/AioTcpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/AioTcpServerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/AioTcpServerContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/AioReadHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/AioSendHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient$2.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/client/AioTcpClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/AioReadHandler.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/server/AioTcpServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/AioTcpServer.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,23 +49,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="GuiceNewModule" />
+        <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>jt</find>
-      <find>Thre</find>
-    </findStrings>
-    <dirStrings>
-      <dir>C:\Users\Administrator\IdeaProjects\uchat\src\main</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="dummy://restClient/response11.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -310,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571395185708</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="更新">
+      <created>1578482609725</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1578482609725</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

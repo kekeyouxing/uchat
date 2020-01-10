@@ -4,6 +4,7 @@ import client.AioTcpClient;
 import client.AioTcpClientConfig;
 import client.ClientDecoder;
 import common.*;
+import util.parser.StringParser;
 
 import java.util.function.Consumer;
 
@@ -42,21 +43,46 @@ public class Client extends AbstractLifecycle {
 
     private class ClientHandler implements Handler {
         @Override
-        public void connectionOpenSuccess(Context context, TcpConnection connection) {
+        public void connectionOpenSuccess(Context context) {
             if(accept!=null){
-                accept.accept(connection);
+                accept.accept(context.getConnection());
             }
         }
     }
 
     public static void main(String[] args) {
-        AioTcpClientConfig config = new AioTcpClientConfig();
-        Client client = new Client(config);
-
-        client.accept(connection -> {
-            System.out.println("客户端连接成功");
-        }).connect("localhost", 9008);
-
+        Thread thread1 = new Thread(()->{
+            AioTcpClientConfig config1 = new AioTcpClientConfig();
+            Client client = new Client(config1);
+            client.accept(connection -> {
+                StringParser parser = new StringParser();
+                parser.complete(message ->{
+                    String s = message.trim();
+                    System.out.println("client receives message -> " + s);
+                });
+                connection.receive(parser::receive);
+                for (int i = 0; i < 5; i++) {
+                    connection.write("I am from client1-" + i + "\r\n");
+                }
+            }).connect("localhost", 9008);
+        });
+        Thread thread2 = new Thread(()->{
+            AioTcpClientConfig config2 = new AioTcpClientConfig();
+            Client client2 = new Client(config2);
+            client2.accept(connection -> {
+                StringParser parser = new StringParser();
+                parser.complete(message ->{
+                    String s = message.trim();
+                    System.out.println("client receives message -> " + s);
+                });
+                connection.receive(parser::receive);
+                for (int i = 6; i < 10; i++) {
+                    connection.write("I am from client2-" + i + "\r\n");
+                }
+            }).connect("localhost", 9008);
+        });
+        thread1.start();
+        thread2.start();
         try {
             Thread.sleep(400000);
         } catch (InterruptedException e) {

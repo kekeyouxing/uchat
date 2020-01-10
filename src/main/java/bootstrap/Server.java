@@ -43,18 +43,19 @@ public class Server extends AbstractLifecycle {
 
     private class ServerHandler implements Handler {
         @Override
-        public void connectionOpenSuccess(Context context, TcpConnection connection) {
+        public void connectionOpenSuccess(Context context) {
             if(accept!=null){
-                accept.accept(connection);
+                accept.accept(context.getConnection());
             }
         }
     }
 
     private class ServerDecoder implements Decoder {
         @Override
-        public void decode(ByteBuffer buffer, TcpConnectionImpl connection) throws IOException {
-            if (connection.action != null){
-                connection.action.accept(buffer);
+        public void decode(ByteBuffer buffer, TcpConnection connection) throws IOException {
+            TcpConnectionImpl con = (TcpConnectionImpl)connection;
+            if (con.action != null){
+                con.action.accept(buffer);
             }
         }
     }
@@ -66,9 +67,11 @@ public class Server extends AbstractLifecycle {
             StringParser parser = new StringParser();
             parser.complete(message->{
                 String msg = message.trim();
-                System.out.println("server receive: "+msg);
+                System.out.println("server receives message -> " + msg);
+                connection.write("response message [" + msg + "]\r\n");
             });
             connection.receive(parser::receive);
+
         }).listen("localhost", 9008);
 
         try {

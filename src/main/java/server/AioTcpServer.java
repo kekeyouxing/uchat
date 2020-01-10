@@ -21,7 +21,7 @@ public class AioTcpServer extends AbstractLifecycle {
     private AsynchronousChannelGroup channelGroup;
     private AioTcpServerConfig config;
     private ThreadPoolExecutor executor = ThreadPoolUtil.createThreadPool();
-    private AioTcpAcceptHandler acceptHandler;
+    private AioTcpServerAcceptHandler acceptHandler;
     private AsynchronousServerSocketChannel serverSocket;
     public AioTcpServer(AioTcpServerConfig config){
         this.config = config;
@@ -60,7 +60,7 @@ public class AioTcpServer extends AbstractLifecycle {
     public void init() {
         try {
             channelGroup = AsynchronousChannelGroup.withThreadPool(executor);
-            acceptHandler = new AioTcpAcceptHandler();
+            acceptHandler = new AioTcpServerAcceptHandler();
             bind(config.getHost(), config.getPort());
         } catch (IOException e) {
             e.printStackTrace();

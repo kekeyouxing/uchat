@@ -13,4 +13,6 @@ public interface TcpConnection extends Connection{
      * @return
      */
     TcpConnection receive(Consumer<ByteBuffer> action);
+
+    TcpConnection write(String message);
 }
